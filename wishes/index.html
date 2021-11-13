@@ -1,1 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Wishes</title>
+        <style>
+            #main {
+                width:70%;
+                height:60vh;
+                background:linear-gradient(360deg,aqua,white);
+                margin:100px auto;
+                border-radius: 20px;
+                box-shadow: 50px 20px 20px black;
+            }
+            #header {
+                width: 90%;
+                height:30vh;
+                
+                text-align: center;
+                margin:10px auto;
+                padding:10px;
+            }
+            #container {
+                width:90%;
+                height:40vh;
+                
+                margin:30px auto;
+                text-align: center;
+                background-size: cover;
+            }
+            #i1 {
+                 padding:100px;
+                 margin:30px auto;
+                 font-size: 50px;
+                 
+            }
+            
+            .btn1 {
+                padding: 10px 60px 10px 60px;
+                margin-left: 20px;
+                border-radius: 30px;
+                background-color: cornsilk;
+                box-shadow: 10px 0 20px black;
+            }
+            .btn2 {
+                padding: 10px 60px 10px 60px;
+                margin-left: 30px;
+                border-radius: 30px;
+                background-color: cornsilk;
+                box-shadow: 10px 0 20px black;
+            }
+            .btn3 {
+                padding: 10px 60px 10px 60px;
+                margin-left: 20px;
+                border-radius: 30px;
+                background-color: cornsilk;
+                box-shadow: 10px 0 20px black;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main">
+            <div id="header">
+                <p id="i1"> Wish To Geekster</p>
+            </div>
 
+            <div id="container">
+                <button class="btn1" onclick="fnGdM()" >GM</button>
+                <button class="btn2" onclick="fnGdA()">GA</button>
+                <button class="btn3" onclick="fnGdN()">GN</button>
+            </div>
+        </div>
+    </body>
+    <script>
+        function fnGdM() {
+            var first= document.getElementById("i1")
+
+            first.innerText="GoodMorning Geekster !!!"
+            first.style.color="teal";
+        }
+        function fnGdA() {
+            var second= document.getElementById("i1")
+
+            second.innerText="GoodAfternoon Geekster !!!"
+            second.style.color="teal";
+        }
+        function fnGdN() {
+            var third= document.getElementById("i1")
+
+            third.innerText="GoodNight Geekster !!!"
+            third.style.color="teal";
+        }
+    </script>
+</html>
