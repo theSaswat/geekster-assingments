@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Show/Hide</title>
+    <style>
+        #div1 {
+            width:40%;
+            height:50vh;
+            margin:100px auto;
+            box-shadow: 0 20px 10px black;
+            padding:30px;
+            border-radius: 20px;background-color: rgb(244, 222, 247);
+        }
+        p {
+            margin: 10px auto;
+            text-align: center;
+            font-size: 40px;
+        }
+        #div3 {
+            width:80%;
+            height:30vh;
+            text-align: center;
+            margin: 100px auto;
+            font-size:20px;
+            
+        }
+        .c1 {
+            border-radius: 20px;
+        }
+    </style>
+    </head>
+    <body>
+        <div id="div1">
+            <div id ="div2">
+                <p>Show / Hide Password</p>
+            </div>
+            <div id="div3">
+                <label>Enter Text</label>
+                 <input type="password" id="i1" />
+                 <button onclick="fnShowHide()" class="c1">Show Password</button>
+            </div>
+        </div>
+
+    </body>
+    <script>
+        function fnShowHide() {
+            var inputRef = document.getElementById("i1");
+            var buttonRef = document.querySelector(".c1");
+            if(inputRef.type==="password") {
+                inputRef.type="text";
+                buttonRef.innerText="Hide Password";
+                buttonRef.style.background="green";
+            
+            }
+            else {
+                inputRef.type="password";
+                buttonRef.innerText="Show Password";
+                buttonRef.style.background="yellow";
+            }
+        }
+    </script>
+</html>
