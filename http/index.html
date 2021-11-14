@@ -1,1 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP</title>
+    <style>
+#tab {
+  
+  border-collapse: collapse;
+  margin-left: 20%;
+}
 
+#tab td, #tab th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#tab tr:nth-child(even){background-color: #f2f2f2;}
+#tab tr:nth-child(odd){background-color: #887575;}
+
+#tab tr:hover {background-color:coral;}
+
+#tab th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #04AA6D;
+  color: white;
+}
+#tab td{
+    text-align: center;
+}
+.image{
+    height: 100px;
+    width: 200px;
+}
+body{
+    background-image: url("https://images.unsplash.com/photo-1503455637927-730bce8583c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+table{
+    border-radius: solid red 10px;
+    text-align: center;
+}
+h2{
+    text-align: center;
+    color: white;
+    text-decoration: underline;
+    font-size: 50px;
+}
+    </style>
+</head>
+<body>
+    <h2>HTTP</h2>
+    <table id="tab">
+        <tr>
+            <th>Title</th>
+            <th>Level</th>
+            <th>Image</th>
+        </tr>
+    </table>
+    <script >
+    fetch('https://codingninjas.in/api/v3/courses')
+.then(res=>res.json())
+    .then(info => {
+        let courses = info.data.courses;
+       
+        for (let i = 0; i < courses.length; i++){
+            let url = courses[i].classroom_icon_url;
+            let title = courses[i].name;
+            let level = courses[i].level;
+            let table = document.querySelector('table');
+            let tableRow = document.createElement('tr');
+            tableRow.innerHTML = '<td>' + title + '</td>' + '<td>' + level + '</td>' + '<td>' + "<img src='" + url + "' class='image'>" + '</td>';
+            table.appendChild(tableRow);
+        }
+})
+    </script>
+</body>
+</html>
