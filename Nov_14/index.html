@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>document</title>
+        <style>
+            body{
+             height:100%;
+             width:100%;
+            }
+            .container{
+            height:80vh;
+            width:760px;
+            background-color: rgb(198, 248, 248);
+            margin:100px auto;
+            border-radius: 30px;
+            box-shadow: 10px 20px 30px black;
+            }
+            #one{
+                box-shadow: 5px 10px 20px black;
+                border-radius: 20px;
+                background-color:white;
+                width: 600px;
+                margin: 50px auto;
+                height: 20px;
+                padding: 30px;
+                text-align: center;
+             
+            }
+           #two{
+               box-shadow: 5px 10px 20px black;
+               border-radius: 20px;
+               background-color:white;
+               width: 600px;
+               margin: 50px auto;
+               height: 20px;
+               padding: 30px;
+               text-align: center;
+           }
+           #three{
+               box-shadow: 5px 10px 20px black;
+               border-radius: 20px;
+               background-color:white;
+               width:600px ;
+               margin:50px auto ;
+               height: 20px;
+               padding: 30px;
+               text-align: center;
+           }
+           #button1{
+               color: gold;
+               font-size:20px;
+               border-color: gold;
+               margin-left:300px;
+               background-color:white;
+    
+            }
+           #button2{
+               color: gold;
+               font-size:20px;
+               border-color: gold;
+               margin-left:340px;
+               background-color:white;
+           }
+           #button3{
+               color: gold;
+               font-size:20px;
+               border-color: gold;
+               margin-left:340px;
+               background-color:white;
+           }
+        </style>
+        <script>
+        function fn1(){
+          var jam =     document.getElementById('one');
+          jam.innerText="Yes , I accepts All Major credit cards";
+           }
+           function fn2(){
+               var pom =document.getElementById('two') ;
+            pom.innerText="Yes I Support Local Farmer";
+            }
+            function fn3(){
+                var tom = document.getElementById('three');
+                tom.innerText="Yes I use organic ingredients";
+            }
+        </script>
+    </head>
+    <body> 
+    				<div class="container">
+        <h1 style="font-style: italic; color: gold; text-align: center;padding-top:50px;font-size:45px;">General Questions</h1>
+    <div id="one">
+ Do You Accept All Major Credit Cards ?
+  <button id="button1" onclick="fn1()"><spam style="font-size:25px;">+</spam></button>
+    </div>
+    <div id="two">
+        Do You Support Local Framers?
+  <button id="button2" onclick="fn2()"><spam style="font-size:25px;">+</spam></button>
+    </div>
+    <div id="three">Do You Use Organic Ingredients ?
+ <button id="button3" onclick="fn3()"><spam style=" font-size:25px;">+</spam></button>
+    </div>
+   </div>
+    </body>
+</html>
