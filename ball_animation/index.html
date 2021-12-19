@@ -1,89 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Ball</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <style>
-      #gameArea {
-        border: 4px solid green;
-      }
-
-      body {
-        height: 100vh;
-        background:white;
-        text-align: center;
-        overflow: hidden; 
-        z-index:0;
-      }
-      h1 {
-        font-family: Comic Sans MS;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Green Ball</h1>
-    <canvas id="game" width="800" height="600"></canvas>
-    <script>
-	var canvas = document.getElementById('game');
-	var ctx = canvas.getContext('2d');
-	var ball = {
-		pos: {x: 500,y: 300},
-        direction: { x: 0, y: 0 },
-		speed: 5,
-        brake: 0.9, 
-	};
-	var FPS = 30;
-    window.onload = function() {
-    	setInterval(function() {
-            animate();
-    		gameBack();
-    	}, 1000/FPS);
-    };
-    function animate() {
-   ball.pos.x += ball.direction.x * ball.speed;
-  ball.pos.y += ball.direction.y * ball.speed;
-        ball.direction.x *= ball.brake;
-        ball.direction.y *= ball.brake;
-    }
-
-    function gameBack() {
-    	drawRect(0,0,canvas.width,canvas.height, 'Black');
-    	colorCircle(ball.pos.x,ball.pos.y,50, 'springgreen');
-    }
-
-    function drawRect(leftX,topY,width,height, drawColor) {
-    	ctx.fillStyle = drawColor;
-    	ctx.fillRect(leftX,topY,width,height);
-    }
-
-    function colorCircle(centerX,centerY,radius, drawColor) {
-    	ctx.fillStyle = drawColor;
-    	ctx.beginPath();
-    	ctx.arc(centerX,centerY,radius,0,Math.PI*2,true);
-    	ctx.closePath();
-    	ctx.fill();
-    }
-
- document.addEventListener('keydown', event => {
-        if (event.keyCode === 37) { 
-        	xBall(-1);
-        } else if (event.keyCode === 39) { 
-        	xBall(1);
-        } else if (event.keyCode === 38) { 
-        	yBall(-1);
-        } else if (event.keyCode === 40) { 
-        	yBall(1);
+        body{
+            background-image: url('./background.jpg');
+            background-position: center;
+            background-size: cover;
         }
-    });
-    function yBall(offset) {
-    	ball.direction.y += offset;
-    }
-    function xBall(offset) {
-    	ball.direction.x += offset;
-    }
-    
- 
+        #ball{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 250px;
+            left: 600px;
+            background-color: lightblue;
+            box-shadow: 0px 0px 10px black;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id ="container">
+        <div id ="ball">
+
+        </div>
+    </div>
+    <script>
+            let ball = document.getElementById("ball");
+let ballLeft = 600;
+let balltop = 250;
+let interval_top;
+let interval_bottom, interval_left, interval_right;
+window.addEventListener("keydown", (Event) => {
+    console.log(Event.keyCode)
+   
+    if (Event.keyCode == 37) {
+        clearInterval(interval_right);
+        clearInterval(interval_top);
+        clearInterval(interval_bottom)
+        interval_left=  setInterval(() => {
+            if (ballLeft > 0) {
+                ballLeft -= 1;
+                ball.style.left = ballLeft + "px";
+            }
+            else {
+                clearInterval(interval_left);
+            }
+        }, 10);
+        
+  }
+    else if (Event.keyCode == 38) {
+        clearInterval(interval_right);
+        clearInterval(interval_left);
+        clearInterval(interval_bottom)
+       interval_top=  setInterval(() => {
+            if (balltop > 0) {
+                balltop -= 1;
+                ball.style.top = balltop + "px";
+            } else {
+                clearInterval(interval_top);
+            }
+        }, 10);
+       
+  }
+    else if (Event.keyCode == 39) {
+        clearInterval(interval_left);
+        clearInterval(interval_top);
+        clearInterval(interval_bottom)
+        interval_right= setInterval(() => {
+            if (ballLeft<1260) {
+                ballLeft += 1;
+                ball.style.left = ballLeft + "px";
+            }
+            else {
+                clearInterval(interval_right);
+            }
+        },10);
+       
+  }
+    else if (Event.keyCode == 40) {
+        clearInterval(interval_right);
+        clearInterval(interval_top);
+        clearInterval(interval_left)
+       interval_bottom=  setInterval(() => {
+          if (balltop < 510) {
+                
+                balltop += 1;
+                ball.style.top = balltop + "px";
+          } 
+          else {
+              clearInterval(interval_bottom);
+          }
+        }, 10);
+      
+  }
+});
     </script>
-  </body>
+</body>
 </html>
